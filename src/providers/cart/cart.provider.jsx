@@ -10,11 +10,11 @@ import {
 
 export const CartContext = createContext({
   hidden: true,
-  toggleHidden: () => { },
+  toggleHidden: () => {},
   cartItems: [],
-  addItem: () => { },
-  removeItem: () => { },
-  clearItemFromCart: () => { },
+  addItem: () => {},
+  removeItem: () => {},
+  clearItemFromCart: () => {},
   cartItemsCount: 0,
   cartTotal: 0
 });
@@ -28,7 +28,8 @@ const CartProvider = ({ children }) => {
   const addItem = item => setCartItems(addItemToCart(cartItems, item));
   const removeItem = item => setCartItems(removeItemFromCart(cartItems, item));
   const toggleHidden = () => setHidden(!hidden);
-  const clearItemFromCart = item => setCartItems(filterItemFromCart(cartItems, item));
+  const clearItemFromCart = item =>
+    setCartItems(filterItemFromCart(cartItems, item));
 
   useEffect(() => {
     setCartItemsCount(getCartItemsCount(cartItems));
